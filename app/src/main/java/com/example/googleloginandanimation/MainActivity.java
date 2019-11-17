@@ -19,11 +19,9 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Variables SignUp
     int RC_SIGN_IN = 0;
-
-    //Variable para el Sign In
     Button signInButton;
-
     GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -45,17 +43,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Aca empiezan los listener
+        //Listener action when press the SignUp button
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 googlesign(view);
             }
         });
-
-    //Works here!
     }
 
+    //Here started actions for call client perfil
     public void googlesign(View view) {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -72,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
+        //Here finished the process
     }
 
+    //Conditionals for a success login
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
