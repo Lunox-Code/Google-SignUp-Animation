@@ -1,21 +1,30 @@
 package com.example.googleloginandanimation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,13 +32,18 @@ public class MainActivity extends AppCompatActivity {
     int RC_SIGN_IN = 0;
     Button signInButton;
     GoogleSignInClient mGoogleSignInClient;
+    private FirebaseAuth firebaseBase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Initializing Views
+        // Authentication instance
+        firebaseBase = FirebaseAuth.getInstance();
+
+        // Add id to variable
         signInButton = findViewById(R.id.googlesign);
 
         // Configure sign-in to request the user's ID, email address, and basic
@@ -42,22 +56,22 @@ public class MainActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
-
-        //Listener action when press the SignUp button
+        // Sign button listener
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                googlesign(view);
+                signIn();
             }
         });
     }
 
-    //Here started actions for call client perfil
-    public void googlesign(View view) {
+    // Sign method
+    private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    // Task verification
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -69,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
-        //Here finished the process
     }
 
-    //Conditionals for a success login
+    // Conditionals
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
+            // If login success
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             startActivity(new Intent(MainActivity.this, animation.class));
             Toast.makeText(MainActivity.this,"Inicio de session Exitoso!!", Toast.LENGTH_SHORT).show();
@@ -86,5 +100,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Falló el inicio de sesion", Toast.LENGTH_LONG).show();
         }
     }
-
 }

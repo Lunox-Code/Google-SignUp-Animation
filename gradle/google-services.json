@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "395887422556",
+    "firebase_url": "https://login-and-animation.firebaseio.com",
+    "project_id": "login-and-animation",
+    "storage_bucket": "login-and-animation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395887422556:android:a76749f3dbc71811538a99",
+        "android_client_info": {
+          "package_name": "com.example.googleloginandanimation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395887422556-jr0kf0fm9haos3jflte7n740oe272nun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.googleloginandanimation",
+            "certificate_hash": "c94aa308d869caf446550cfb0f55b3d951343ab6"
+          }
+        },
+        {
+          "client_id": "395887422556-lgti6c4pttac5hpesc4eqco7k0hplf7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZkTJtnvVQsHOY1Sr_c1tH31aXNs-_pAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395887422556-lgti6c4pttac5hpesc4eqco7k0hplf7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
