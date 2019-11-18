@@ -2,8 +2,10 @@
 
 https://android.jlelse.eu/how-to-change-the-text-and-theme-of-googles-sign-in-button-on-android-cad27d482a5a
 
-# Lottie
+# Lottie:
 
 https://github.com/airbnb/lottie-android
 
-# Google SignUp Login
+# Firebase:
+
+https://firebase.google.com/docs/auth/android/google-signin?hl=es-419
