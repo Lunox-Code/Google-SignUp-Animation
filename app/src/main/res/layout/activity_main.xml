@@ -10,12 +10,12 @@
 
     <com.shobhitpuri.custombuttons.GoogleSignInButton
         android:id="@+id/googlesign"
-        android:onClick="googlesign"
-        android:layout_width="265dp"
-        android:layout_height="54dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="310dp"
+        android:onClick="googlesign"
         android:text="@string/google_sign_up"
         app:isDarkTheme="true"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -17,4 +17,16 @@
         app:lottie_autoPlay="true"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/signout"
+        android:onClick="signout"
+        android:background="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out and back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="653dp"
+        tools:ignore="OnClick" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
